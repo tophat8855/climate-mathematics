@@ -1,8 +1,11 @@
 ^{:kindly/hide-code true
-  :kindly/kind :kind/hiccup}
+  :kindly/kind      :kind/hiccup}
 (ns chapter-1
   (:require [scicloj.kindly.v4.kind :as kind]
+            [tablecloth.api :as tc]
+            [scicloj.tableplot.v1.hanami :as hanami]
            #_ [scicloj.viz.api :as viz]))
+
 ;; # Dimensional Analysis for Climate Science
 
 ;; This chapter is an introduction and doesn't use R yet. I'm using this space to see about
@@ -75,7 +78,7 @@
 ;; I am using this example to play with making a scatterplot here. I am using sample data.
 
 ^{:kindly/hide-code true}
-(def data
+(def force-data
   [{:time 0.2178 :position 0}
    {:time 0.327 :position 0.15}
    {:time 0.3944 :position 0.3}
@@ -90,24 +93,61 @@
    {:time 0.7808 :position 1.65}])
 
 ^{:kindly/hide-code true}
-(kind/table data)
+(kind/table force-data)
 
 ^{:kindly/hide-code true}
 (def plotly-example
-  {:data   [{:x    (map :time data)
-             :y    (map :position data)
+  {:data   [{:x    (map :time force-data)
+             :y    (map :position force-data)
              :type :scatter
              :mode :markers}]
-   :layout {:title "Plotly example"
+   :layout {:title "Basic Plotly Scatterplot"
             :xaxis {:title "Time"}
             :yaxis {:title "Position"}}})
 
+;; Trying this for a trendline in Plotly:
+
+(defn linear-regression [x y]
+  (let [n             (count x)
+        sum-x         (reduce + x)
+        sum-y         (reduce + y)
+        sum-xy        (reduce + (map * x y))
+        sum-x-squared (reduce + (map * x x))
+        slope         (/ (- (* n sum-xy) (* sum-x sum-y))
+                         (- (* n sum-x-squared) (* sum-x sum-x)))
+        intercept     (/ (- (* sum-y sum-x-squared) (* sum-x sum-xy))
+                         (- (* n sum-x-squared) (* sum-x sum-x)))]
+    {:slope slope :intercept intercept}))
+
+(let [{:keys [slope intercept]} (linear-regression (map :time force-data) (map :position force-data))
+      trend-line-x              (map :time force-data)
+      trend-line-y              (map #(-> (* slope %) (+ intercept)) trend-line-x)]
+   ;; Add the trend line to the scatterplot
+   (def scatterplot-with-trendline
+     (update plotly-example :data conj {:x    trend-line-x
+                                        :y    trend-line-y
+                                        :type :scatter
+                                        :mode :lines
+                                        :line {:color "red"}
+                                        :name "Trend Line"})))
+
 ^{:kindly/hide-code true}
-(kind/plotly plotly-example)
+(kind/plotly scatterplot-with-trendline)
+
+^{:kindly/hide-code true}
+(-> force-data
+    (tc/dataset)
+    (hanami/plot
+     hanami/point-chart
+     {:=x     :time
+      :=y     :position
+      :=title "Basic Hanami Scatterplot"}))
+
+;; Still need to figure out how to add a trendline in Hanami
 
 #_(-> [{:x 1 :y 2}
-     {:x 2 :y 4}
-     {:x 3 :y 9}]
+       {:x 2 :y 4}
+       {:x 3 :y 9}]
     viz/data
     (viz/type :point)
     (viz/mark-size 200)

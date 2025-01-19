@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -99,10 +133,13 @@ window.Quarto = {
 .clay-side-by-side .sourceCode {margin: 0}
 .clay-side-by-side {margin: 1em 0}
 </style>
-<script src="chapter_1_files/md-default0.js" type="text/javascript"></script>
 <script src="chapter_1_files/md-default1.js" type="text/javascript"></script>
-<script src="chapter_1_files/katex2.js" type="text/javascript"></script>
-<script src="chapter_1_files/plotly3.js" type="text/javascript"></script>
+<script src="chapter_1_files/md-default2.js" type="text/javascript"></script>
+<script src="chapter_1_files/katex3.js" type="text/javascript"></script>
+<script src="chapter_1_files/plotly4.js" type="text/javascript"></script>
+<script src="chapter_1_files/vega5.js" type="text/javascript"></script>
+<script src="chapter_1_files/vega6.js" type="text/javascript"></script>
+<script src="chapter_1_files/vega7.js" type="text/javascript"></script>
 <p><link href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" rel="stylesheet" type="text/css"></p>
 <section id="dimensional-analysis-for-climate-science" class="level1">
 <h1>Dimensional Analysis for Climate Science</h1>
@@ -200,8 +237,40 @@ window.Quarto = {
 </table>
 </div>
 </div>
+<p>Trying this for a trendline in Plotly:</p>
+<div class="sourceClojure">
+<div class="sourceCode" id="cb1"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> linear-regression </span>[x y]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">let</span> [n             (<span class="kw">count</span> x)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        sum-x         (<span class="kw">reduce</span> <span class="kw">+</span> x)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        sum-y         (<span class="kw">reduce</span> <span class="kw">+</span> y)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        sum-xy        (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">map</span> <span class="kw">*</span> x y))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        sum-x-squared (<span class="kw">reduce</span> <span class="kw">+</span> (<span class="kw">map</span> <span class="kw">*</span> x x))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        slope         (<span class="kw">/</span> (<span class="kw">-</span> (<span class="kw">*</span> n sum-xy) (<span class="kw">*</span> sum-x sum-y))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 (<span class="kw">-</span> (<span class="kw">*</span> n sum-x-squared) (<span class="kw">*</span> sum-x sum-x)))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        intercept     (<span class="kw">/</span> (<span class="kw">-</span> (<span class="kw">*</span> sum-y sum-x-squared) (<span class="kw">*</span> sum-x sum-xy))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                     (<span class="kw">-</span> (<span class="kw">*</span> n sum-x-squared) (<span class="kw">*</span> sum-x sum-x)))]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    {<span class="at">:slope</span> slope <span class="at">:intercept</span> intercept}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceClojure">
+<div class="sourceCode" id="cb2"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">let</span> [{<span class="at">:keys</span> [slope intercept]} (linear-regression (<span class="kw">map</span> <span class="at">:time</span> force-data) (<span class="kw">map</span> <span class="at">:position</span> force-data))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>      trend-line-x              (<span class="kw">map</span> <span class="at">:time</span> force-data)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>      trend-line-y              (<span class="kw">map</span> #(<span class="kw">-&gt;</span> (<span class="kw">*</span> slope <span class="va">%</span>) (<span class="kw">+</span> intercept)) trend-line-x)]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="co">;; Add the trend line to the scatterplot</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>   (<span class="bu">def</span><span class="fu"> scatterplot-with-trendline</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     (<span class="kw">update</span> plotly-example <span class="at">:data</span> <span class="kw">conj</span> {<span class="at">:x</span>    trend-line-x</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">:y</span>    trend-line-y</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">:type</span> <span class="at">:scatter</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">:mode</span> <span class="at">:lines</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">:line</span> {<span class="at">:color</span> <span class="st">"red"</span>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">:name</span> <span class="st">"Trend Line"</span>})))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="printedClojure">
+<div class="sourceCode" id="cb3"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">#'chapter-1/scatterplot-with-trendline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div style="height:400px;width:100%;"><script>Plotly.newPlot(document.currentScript.parentElement,
-              [{"x":[0.2178,0.327,0.3944,0.4487,0.4954,0.5367,0.5746,0.6096,0.6425,0.6736,0.6998,0.7808],"y":[0,0.15,0.3,0.45,0.6,0.75,0.9,1.05,1.2,1.35,1.5,1.65],"type":"scatter","mode":"markers"}], {"title":"Plotly example","xaxis":{"title":"Time"},"yaxis":{"title":"Position"}}, {});</script></div>
+              [{"x":[0.2178,0.327,0.3944,0.4487,0.4954,0.5367,0.5746,0.6096,0.6425,0.6736,0.6998,0.7808],"y":[0,0.15,0.3,0.45,0.6,0.75,0.9,1.05,1.2,1.35,1.5,1.65],"type":"scatter","mode":"markers"},{"x":[0.2178,0.327,0.3944,0.4487,0.4954,0.5367,0.5746,0.6096,0.6425,0.6736,0.6998,0.7808],"y":[-0.19547711952238522,0.15760640103899992,0.3755352406528951,0.5511069912617159,0.7021051635164475,0.835643161677484,0.958187716890639,1.071355511942365,1.1777332392909874,1.278290908608378,1.3630050866185273,1.6249076980239505],"type":"scatter","mode":"lines","line":{"color":"red"},"name":"Trend Line"}], {"title":"Basic Plotly Scatterplot","xaxis":{"title":"Time"},"yaxis":{"title":"Position"}}, {});</script></div>
+<div><script>vegaEmbed(document.currentScript.parentElement, {"encoding":{"x":{"field":"time","type":"quantitative"},"y":{"field":"position","type":"quantitative"}},"usermeta":{"embedOptions":{"renderer":"svg"}},"mark":{"type":"circle","tooltip":true},"width":400,"background":"floralwhite","title":"Basic Hanami Scatterplot","height":300,"data":{"url":"chapter_1_files\/0.csv","format":{"type":"csv"}}});</script></div>
+<p>Still need to figure out how to add a trendline in Hanami</p>
 <div style="background-color:grey;height:2px;width:100%;"></div>
 <div><pre><small><small>source: notebooks/climate_mathematics/chapter_1.clj</small></small></pre></div>
 </section>
