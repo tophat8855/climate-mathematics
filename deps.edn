@@ -1,2 +1,4 @@
-{:deps  {org.scicloj/clay {:mvn/version "2-beta27"}
-         org.scicloj/noj  {:mvn/version "2-beta4"}}}
+{:deps {org.scicloj/clay    {:mvn/version "2-beta27"}
+        org.scicloj/noj     {:mvn/version "2-beta4"}
+        ;; TODO: update viz to use kindly 4. stuck on 3
+        #_#_ org.scicloj/viz.clj {:mvn/version "1-alpha5"}}}

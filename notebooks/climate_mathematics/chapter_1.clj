@@ -1,7 +1,8 @@
 ^{:kindly/hide-code true
   :kindly/kind :kind/hiccup}
 (ns chapter-1
-  (:require [scicloj.kindly.v4.kind :as kind]))
+  (:require [scicloj.kindly.v4.kind :as kind]
+           #_ [scicloj.viz.api :as viz]))
 ;; # Dimensional Analysis for Climate Science
 
 ;; This chapter is an introduction and doesn't use R yet. I'm using this space to see about
@@ -93,11 +94,22 @@
 
 ^{:kindly/hide-code true}
 (def plotly-example
-  {:data   [{:x (map :time data)
-             :y (map :position data)
-             :type     :scatter
-             :mode     :markers}]
-   :layout {:title "Plotly example"}})
+  {:data   [{:x    (map :time data)
+             :y    (map :position data)
+             :type :scatter
+             :mode :markers}]
+   :layout {:title "Plotly example"
+            :xaxis {:title "Time"}
+            :yaxis {:title "Position"}}})
 
 ^{:kindly/hide-code true}
 (kind/plotly plotly-example)
+
+#_(-> [{:x 1 :y 2}
+     {:x 2 :y 4}
+     {:x 3 :y 9}]
+    viz/data
+    (viz/type :point)
+    (viz/mark-size 200)
+    (viz/color :x)
+    viz/viz)
