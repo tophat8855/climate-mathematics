@@ -2,3 +2,7 @@
 
 This is a space for me to try out clay and its scicloj world while working through
 the Climate Mathematics textbook.
+
+### Things I've come across/need to revisit
+- Viz only works for kind v3 and the most recent kind that is in my deps.edn is v4. Perhaps, PR to update it?
+- Hanami should be able to calculate a trend line and show it on the scatterplot, but not sure how to do that.
