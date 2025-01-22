@@ -6,12 +6,15 @@
             [scicloj.tableplot.v1.hanami :as hanami]
            #_ [scicloj.viz.api :as viz]))
 
-;; # Dimensional Analysis for Climate Science
+;; # Climate Mathematics Ch. 1
+;; *Dimensional Analysis for Climate Science*
+
+;; ---
 
 ;; This chapter is an introduction and doesn't use R yet. I'm using this space to see about
 ;; using Clay for mathematical notation as I do some exercises.
 
-;; I will not share every exercise here, as many of the answrs for chapter 1 are found
+;; I will not share every exercise here, as many of the answers for chapter 1 are found
 ;; in the back of the book and I don't want to spoil the fun for anyone else.
 
 ;; ## Exercise 1.1
