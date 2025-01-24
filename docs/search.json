@@ -4,99 +4,79 @@
     "href": "index.html",
     "title": "Climate Mathematics",
     "section": "",
-    "text": "1 Heather’s little clay notebook\nThis is a playground where I’m trying to learn Clay and play with some of the scicloj stuff.",
+    "text": "1 Chapter 1 Dimensional Analysis for Climate Science\nThis chapter is an introduction and doesn’t use R yet. I’m using this space to see about using Clay for mathematical notation as I do some exercises.\nI will not share every exercise here, as many of the answers for chapter 1 are found in the back of the book and I don’t want to spoil the fun for anyone else.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Heather's little clay notebook</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Chapter 1 *Dimensional Analysis for Climate Science*</span>"
     ]
   },
   {
-    "objectID": "index.html#goals",
-    "href": "index.html#goals",
+    "objectID": "index.html#exercise-1.1",
+    "href": "index.html#exercise-1.1",
     "title": "Climate Mathematics",
-    "section": "1.1 Goals",
-    "text": "1.1 Goals\n\nWork through the Climate Mathematics textbook, using Clay to document my progress.",
+    "section": "1.1 Exercise 1.1",
+    "text": "1.1 Exercise 1.1\n\\[v = \\alpha m^a g^b t^c\\]\n\\[[v] = [\\alpha] [m]^a [g]^b [t]^c\\]\n\\[LT^{-1} = 1 \\times M^a (LT ^{-2})^b T^c\\]\n\\[LT^{-1} = M^a L^b T ^{c-2b+1}\\]\n\\[a = 0, b = 1, c = 2b - 1 = 2 - 1 = 1\\]\nSo the original equation is\n\\[v = \\alpha m^0 g^1 t^1 = \\alpha g t\\]",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Heather's little clay notebook</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Chapter 1 *Dimensional Analysis for Climate Science*</span>"
     ]
   },
   {
-    "objectID": "index.html#about-me",
-    "href": "index.html#about-me",
+    "objectID": "index.html#exercise-1.2",
+    "href": "index.html#exercise-1.2",
     "title": "Climate Mathematics",
-    "section": "1.2 About me",
-    "text": "1.2 About me\nI am a professional clojure software engineer. I am on the Board for Clojurists Together.\n\nLinkedIn\nPersonal Github\nCurrent Work Github\n\n\nsource: notebooks/index.clj",
+    "section": "1.2 Exercise 1.2",
+    "text": "1.2 Exercise 1.2\n\\[h = \\beta m^a g^b t^c\\]\n\\[[h] = [\\beta] [m]^a [g]^b [t]^c\\]\n\\[L = 1 \\times M^a (LT^{-2})^b T^c\\]\n\\[L = M^a L^b T^{-2} T^c\\]\n\\[1 = M^a L^{b-1} T^{c-2}\\]\n\\[a = 0, b - 1 = 0, c - 2 = 0\\]\n\\[h = \\beta m^0 g^1 t^2 = \\beta g t^2\\]",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Heather's little clay notebook</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Chapter 1 *Dimensional Analysis for Climate Science*</span>"
     ]
   },
   {
-    "objectID": "chapter_1.html",
-    "href": "chapter_1.html",
-    "title": "2  Climate Mathematics Ch. 1",
-    "section": "",
-    "text": "2.1 Exercise 1.1\n\\[v = \\alpha m^a g^b t^c\\]\n\\[[v] = [\\alpha] [m]^a [g]^b [t]^c\\]\n\\[LT^{-1} = 1 \\times M^a (LT ^{-2})^b T^c\\]\n\\[LT^{-1} = M^a L^b T ^{c-2b+1}\\]\n\\[a = 0, b = 1, c = 2b - 1 = 2 - 1 = 1\\]\nSo the original equation is\n\\[v = \\alpha m^0 g^1 t^1 = \\alpha g t\\]",
+    "objectID": "index.html#exercise-1.8",
+    "href": "index.html#exercise-1.8",
+    "title": "Climate Mathematics",
+    "section": "1.3 Exercise 1.8",
+    "text": "1.3 Exercise 1.8\n\\[F_g = G\\frac{m_1 m_2}{r^2}\\]\n\\[[F_g] = [G] \\frac{[m_1][m_2]}{[r]^2}\\]\n\\[MLT^{-2} = [G] \\frac{M^2}{L^2}\\]\n\\[[G] = M^{-1} L^{3} T^{-2}\\]",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Climate Mathematics Ch. 1</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Chapter 1 *Dimensional Analysis for Climate Science*</span>"
     ]
   },
   {
-    "objectID": "chapter_1.html#exercise-1.2",
-    "href": "chapter_1.html#exercise-1.2",
-    "title": "2  Climate Mathematics Ch. 1",
-    "section": "2.2 Exercise 1.2",
-    "text": "2.2 Exercise 1.2\n\\[h = \\beta m^a g^b t^c\\]\n\\[[h] = [\\beta] [m]^a [g]^b [t]^c\\]\n\\[L = 1 \\times M^a (LT^{-2})^b T^c\\]\n\\[L = M^a L^b T^{-2} T^c\\]\n\\[1 = M^a L^{b-1} T^{c-2}\\]\n\\[a = 0, b - 1 = 0, c - 2 = 0\\]\n\\[h = \\beta m^0 g^1 t^2 = \\beta g t^2\\]",
+    "objectID": "index.html#exercise-1.10",
+    "href": "index.html#exercise-1.10",
+    "title": "Climate Mathematics",
+    "section": "1.4 Exercise 1.10",
+    "text": "1.4 Exercise 1.10\nI am using this example to play with making a scatterplot here. I am using sample data.\n\n\n\n\n\ntime\nposition\n\n\n\n\n0.2178\n0\n\n\n0.327\n0.15\n\n\n0.3944\n0.3\n\n\n0.4487\n0.45\n\n\n0.4954\n0.6\n\n\n0.5367\n0.75\n\n\n0.5746\n0.9\n\n\n0.6096\n1.05\n\n\n0.6425\n1.2\n\n\n0.6736\n1.35\n\n\n0.6998\n1.5\n\n\n0.7808\n1.65\n\n\n\n\n\nTrying this for a trendline in Plotly:\n\n(defn linear-regression [x y]\n  (let [n             (count x)\n        sum-x         (reduce + x)\n        sum-y         (reduce + y)\n        sum-xy        (reduce + (map * x y))\n        sum-x-squared (reduce + (map * x x))\n        slope         (/ (- (* n sum-xy) (* sum-x sum-y))\n                         (- (* n sum-x-squared) (* sum-x sum-x)))\n        intercept     (/ (- (* sum-y sum-x-squared) (* sum-x sum-xy))\n                         (- (* n sum-x-squared) (* sum-x sum-x)))]\n    {:slope slope :intercept intercept}))\n\n\n(let [{:keys [slope intercept]} (linear-regression (map :time force-data) (map :position force-data))\n      trend-line-x              (map :time force-data)\n      trend-line-y              (map #(-&gt; (* slope %) (+ intercept)) trend-line-x)]\n   ;; Add the trend line to the scatterplot\n   (def scatterplot-with-trendline\n     (update plotly-example :data conj {:x    trend-line-x\n                                        :y    trend-line-y\n                                        :type :scatter\n                                        :mode :lines\n                                        :line {:color \"red\"}\n                                        :name \"Trend Line\"})))\n\n\n#'index/scatterplot-with-trendline\n\n\n\nStill need to figure out how to add a trendline in Hanami\n\nsource: notebooks/index.clj",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Climate Mathematics Ch. 1</span>"
-    ]
-  },
-  {
-    "objectID": "chapter_1.html#exercise-1.8",
-    "href": "chapter_1.html#exercise-1.8",
-    "title": "2  Climate Mathematics Ch. 1",
-    "section": "2.3 Exercise 1.8",
-    "text": "2.3 Exercise 1.8\n\\[F_g = G\\frac{m_1 m_2}{r^2}\\]\n\\[[F_g] = [G] \\frac{[m_1][m_2]}{[r]^2}\\]\n\\[MLT^{-2} = [G] \\frac{M^2}{L^2}\\]\n\\[[G] = M^{-1} L^{3} T^{-2}\\]",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Climate Mathematics Ch. 1</span>"
-    ]
-  },
-  {
-    "objectID": "chapter_1.html#exercise-1.10",
-    "href": "chapter_1.html#exercise-1.10",
-    "title": "2  Climate Mathematics Ch. 1",
-    "section": "2.4 Exercise 1.10",
-    "text": "2.4 Exercise 1.10\nI am using this example to play with making a scatterplot here. I am using sample data.\n\n\n\n\n\ntime\nposition\n\n\n\n\n0.2178\n0\n\n\n0.327\n0.15\n\n\n0.3944\n0.3\n\n\n0.4487\n0.45\n\n\n0.4954\n0.6\n\n\n0.5367\n0.75\n\n\n0.5746\n0.9\n\n\n0.6096\n1.05\n\n\n0.6425\n1.2\n\n\n0.6736\n1.35\n\n\n0.6998\n1.5\n\n\n0.7808\n1.65\n\n\n\n\n\nTrying this for a trendline in Plotly:\n\n(defn linear-regression [x y]\n  (let [n             (count x)\n        sum-x         (reduce + x)\n        sum-y         (reduce + y)\n        sum-xy        (reduce + (map * x y))\n        sum-x-squared (reduce + (map * x x))\n        slope         (/ (- (* n sum-xy) (* sum-x sum-y))\n                         (- (* n sum-x-squared) (* sum-x sum-x)))\n        intercept     (/ (- (* sum-y sum-x-squared) (* sum-x sum-xy))\n                         (- (* n sum-x-squared) (* sum-x sum-x)))]\n    {:slope slope :intercept intercept}))\n\n\n(let [{:keys [slope intercept]} (linear-regression (map :time force-data) (map :position force-data))\n      trend-line-x              (map :time force-data)\n      trend-line-y              (map #(-&gt; (* slope %) (+ intercept)) trend-line-x)]\n   ;; Add the trend line to the scatterplot\n   (def scatterplot-with-trendline\n     (update plotly-example :data conj {:x    trend-line-x\n                                        :y    trend-line-y\n                                        :type :scatter\n                                        :mode :lines\n                                        :line {:color \"red\"}\n                                        :name \"Trend Line\"})))\n\n\n#'chapter-1/scatterplot-with-trendline\n\n\n\nStill need to figure out how to add a trendline in Hanami\n\nsource: notebooks/climate_mathematics/chapter_1.clj",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Climate Mathematics Ch. 1</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Chapter 1 *Dimensional Analysis for Climate Science*</span>"
     ]
   },
   {
     "objectID": "chapter_2.html",
     "href": "chapter_2.html",
-    "title": "3  Climate Mathematics Ch. 2",
+    "title": "2  Chapter 2: Basics of R Programming",
     "section": "",
-    "text": "3.1 Basics\nLearning “&lt;-”, the assignment operator.\nGenerating sequences",
+    "text": "2.1 Basics\nLearning “&lt;-”, the assignment operator.\nGenerating sequences",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Climate Mathematics Ch. 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Chapter 2: *Basics of R Programming*</span>"
     ]
   },
   {
     "objectID": "chapter_2.html#basics",
     "href": "chapter_2.html#basics",
-    "title": "3  Climate Mathematics Ch. 2",
+    "title": "2  Chapter 2: Basics of R Programming",
     "section": "",
     "text": "(r \"1+4\")\n\n\n[1] 5\n\n\n\n(r \"2+pi/4-0.8\")\n\n\n[1] 1.985398\n\n\n\n\n(r \"x&lt;-1\")\n\n\n[1] 1\n\n\n\n(r \"y&lt;-2\")\n\n\n[1] 2\n\n\n\n(r \"z&lt;-4\")\n\n\n[1] 4\n\n\n\n(r \"t&lt;-2*x^y-z\")\n\n\n[1] -2\n\n\n\n(r \"t\")\n\n\n[1] -2\n\n\n\n(r \"tmax &lt;- c(77, 72, 75, 73, 66, 64, 59)\")\n\n\n[1] 77 72 75 73 66 64 59\n\n\n\n\n(r \"1: 8\")\n\n\n[1] 1 2 3 4 5 6 7 8\n\n\n\n(r \"seq(1,8, by=1)\")\n\n\n[1] 1 2 3 4 5 6 7 8\n\n\n\n(r \"seq(1,8, len=8)\")\n\n\n[1] 1 2 3 4 5 6 7 8\n\n\n\n(r/colon 1 8)\n\n\n[1] 1 2 3 4 5 6 7 8",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Climate Mathematics Ch. 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Chapter 2: *Basics of R Programming*</span>"
     ]
   },
   {
     "objectID": "chapter_2.html#functions",
     "href": "chapter_2.html#functions",
-    "title": "3  Climate Mathematics Ch. 2",
-    "section": "3.2 Functions",
-    "text": "3.2 Functions\n\n(def f (r \"function(x) x*10\"))\n\n\n(r-&gt;clj (f 5 ))\n\n\n[50.0]\n\n\n(let [f (r \"function(x,y,z) x+y-z/2\")]\n  (-&gt;&gt; [(f 1 2 3)\n        (f 4 5 6)]\n       (map r-&gt;clj)))\n\n\n([1.5] [6.0])\n\n\n(require-r '[graphics :as gr :refer [plot hist]])\n\n\nnil\n\n\n(require-r '[ggplot2 :refer [ggplot aes geom_point xlab ylab labs]])\n\n\nnil\n\n\n(r \"plot(1:7, c(77, 72, 75, 73, 66, 64, 59))\")\n\n\nNULL\n\n\nUsing basic graphics plot\n\n(plot-&gt;svg\n #(gr/plot-default (r-&gt;clj (r \"1:7\")) (r-&gt;clj (r \"c(77,72,75,73,66,64,59)\"))))\n\n\n\n\n  \n\n\n\n  \n    \n  \n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n2\n3\n4\n5\n6\n7\n\n\n\n\n\n60\n65\n70\n75\n\nc(1L, 2L, 3L, 4L, 5L, 6L, 7L)\nc(77, 72, 75, 73, 66, 64, 59)\n\n\n\n\n(plot-&gt;svg\n #(gr/plot-function (r-&gt;clj (r \"sin\")) (r-&gt;clj (r \"-pi\")) (r-&gt;clj (r \"2*pi\"))))\n\n\nUsing ggplot\n\n(plot-&gt;svg\n (let [x (r-&gt;clj (r \"1: 7\"))\n       y (r-&gt;clj (r \"c(77, 72, 75, 73, 66, 64, 59)\"))]\n   (-&gt; {:x x :y y}\n       dataset/-&gt;dataset\n       (ggplot (aes :x x\n                    :y y))\n       (r/r+ (geom_point)\n             (xlab \"x\")\n             (ylab \"y\")))))\n\n\n\n\n  \n\n\n\n  \n    \n  \n\n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n60\n65\n70\n75\n\n\n\n\n\n\n\n2\n4\n6\nx\ny\n\n\n\n\n(plot-&gt;svg\n #(gr/plot-default (r-&gt;clj (r \"sin\")) (r-&gt;clj (r \"-pi\")) (r-&gt;clj (r \"2*pi\"))))\n\n\n\nsource: notebooks/climate_mathematics/chapter_2.clj",
+    "title": "2  Chapter 2: Basics of R Programming",
+    "section": "2.2 Functions",
+    "text": "2.2 Functions\n\n(def f (r \"function(x) x*10\"))\n\n\n(r-&gt;clj (f 5 ))\n\n\n[50.0]\n\n\n(let [f (r \"function(x,y,z) x+y-z/2\")]\n  (-&gt;&gt; [(f 1 2 3)\n        (f 4 5 6)]\n       (map r-&gt;clj)))\n\n\n([1.5] [6.0])\n\n\n(require-r '[graphics :as gr :refer [plot hist]])\n\n\nnil\n\n\n(require-r '[ggplot2 :refer [ggplot aes geom_point xlab ylab labs]])\n\n\nnil\n\n\n(r \"plot(1:7, c(77, 72, 75, 73, 66, 64, 59))\")\n\n\nNULL\n\n\nUsing basic graphics plot\n\n(plot-&gt;svg\n #(gr/plot-default (r-&gt;clj (r \"1:7\")) (r-&gt;clj (r \"c(77,72,75,73,66,64,59)\"))))\n\n\n\n\n  \n\n\n\n  \n    \n  \n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1\n2\n3\n4\n5\n6\n7\n\n\n\n\n\n60\n65\n70\n75\n\nc(1L, 2L, 3L, 4L, 5L, 6L, 7L)\nc(77, 72, 75, 73, 66, 64, 59)\n\n\n\n\n(plot-&gt;svg\n #(gr/plot-function (r-&gt;clj (r \"sin\")) (r-&gt;clj (r \"-pi\")) (r-&gt;clj (r \"2*pi\"))))\n\n\nUsing ggplot\n\n(plot-&gt;svg\n (let [x (r-&gt;clj (r \"1: 7\"))\n       y (r-&gt;clj (r \"c(77, 72, 75, 73, 66, 64, 59)\"))]\n   (-&gt; {:x x :y y}\n       dataset/-&gt;dataset\n       (ggplot (aes :x x\n                    :y y))\n       (r/r+ (geom_point)\n             (xlab \"x\")\n             (ylab \"y\")))))\n\n\n\n\n  \n\n\n\n  \n    \n  \n\n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n60\n65\n70\n75\n\n\n\n\n\n\n\n2\n4\n6\nx\ny\n\n\n\n\n(plot-&gt;svg\n #(gr/plot-default (r-&gt;clj (r \"sin\")) (r-&gt;clj (r \"-pi\")) (r-&gt;clj (r \"2*pi\"))))\n\n\n\nsource: notebooks/climate_mathematics/chapter_2.clj",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Climate Mathematics Ch. 2</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Chapter 2: *Basics of R Programming*</span>"
     ]
   }
 ]

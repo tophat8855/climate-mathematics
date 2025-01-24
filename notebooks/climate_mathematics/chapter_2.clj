@@ -6,8 +6,7 @@
             [clojisr.v1.r :as r :refer [r r->clj require-r]]
             [tech.v3.dataset :as dataset]))
 
-;; # Climate Mathematics Ch. 2
-;; *Basics of R Programming*
+;; # Chapter 2: *Basics of R Programming*
 
 ;; ---
 

@@ -3,5 +3,5 @@ format:
   revealjs: {theme: solarized, navigation-mode: vertical, transition: slide, background-transition: fade, incremental: true}
 project: {type: book}
 book:
-  chapters: [index.qmd, chapter_1.qmd, chapter_2.qmd]
+  chapters: [index.qmd, chapter_2.qmd]
   title: Climate Mathematics
