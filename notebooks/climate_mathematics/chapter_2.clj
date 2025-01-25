@@ -39,7 +39,6 @@
 (r "seq(1,8, len=8)")
 (r/colon 1 8)
 
-
 ;; ## Functions
 (def f (r "function(x) x*10"))
 (r->clj (f 5 ))
@@ -51,19 +50,16 @@
 
 (require-r '[graphics :as gr :refer [plot hist]])
 
-(require-r '[ggplot2 :refer [ggplot aes geom_point xlab ylab labs]])
+(require-r '[ggplot2 :refer [ggplot aes geom_point geom_path geom_line geom_tile xlab ylab labs]])
 
 (r "plot(1:7, c(77, 72, 75, 73, 66, 64, 59))")
 
-;; Using basic graphics plot
+;; ### Using basic graphics plot
 
 (plot->svg
  #(gr/plot-default (r->clj (r "1:7")) (r->clj (r "c(77,72,75,73,66,64,59)"))))
 
-(plot->svg
- #(gr/plot-function (r->clj (r "sin")) (r->clj (r "-pi")) (r->clj (r "2*pi"))))
-
-;; Using ggplot
+;; ### Using ggplot
 
 (plot->svg
  (let [x (r->clj (r "1: 7"))
@@ -76,7 +72,26 @@
              (xlab "x")
              (ylab "y")))))
 
+(plot->svg
+ (let [{:keys [x y] :as sin-data} (r->clj (r "plot(sin, -pi, 2*pi)"))]
+   (-> sin-data
+       dataset/->dataset
+       sin-data
+       (ggplot (aes :x x
+                    :y y))
+       (r/r+ (geom_path)
+             (xlab "x")
+             (ylab "y")))))
+
+(r "square <- function(x) x*x")
+(def x (r->clj (r "x <- seq(-3, 2, length=100)")))
+(def y (r->clj (r "y <- square(x)")))
 
 (plot->svg
- #(gr/plot-default (r->clj (r "sin")) (r->clj (r "-pi")) (r->clj (r "2*pi"))))
-
+ (-> {:x (r->clj x) :y (r->clj y)}
+     dataset/->dataset
+     (ggplot (aes :x x
+                  :y y))
+     (r/r+ (geom_line)
+           (xlab "x")
+           (ylab "y"))))

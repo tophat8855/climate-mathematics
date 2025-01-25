@@ -162,7 +162,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics"><span class="header-section-number">2.1</span> Basics</a></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">2.2</span> Functions</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">2.2</span> Functions</a>
+  <ul>
+  <li><a href="#using-basic-graphics-plot" id="toc-using-basic-graphics-plot" class="nav-link" data-scroll-target="#using-basic-graphics-plot"><span class="header-section-number">2.2.1</span> Using basic graphics plot</a></li>
+  <li><a href="#using-ggplot" id="toc-using-ggplot" class="nav-link" data-scroll-target="#using-ggplot"><span class="header-section-number">2.2.2</span> Using ggplot</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -319,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb31"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="va">nil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceClojure">
-<div class="sourceCode" id="cb32"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(require-r '[ggplot2 <span class="at">:refer</span> [ggplot aes geom_point xlab ylab labs]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(require-r '[ggplot2 <span class="at">:refer</span> [ggplot aes geom_point geom_path geom_line geom_tile xlab ylab labs]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="printedClojure">
 <div class="sourceCode" id="cb33"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="va">nil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -331,7 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb35"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>NULL</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Using basic graphics plot</p>
+<section id="using-basic-graphics-plot" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="using-basic-graphics-plot"><span class="header-section-number">2.2.1</span> Using basic graphics plot</h3>
 <div class="sourceClojure">
 <div class="sourceCode" id="cb36"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>(plot-&gt;svg</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a> #(gr/plot-default (r-&gt;clj (r <span class="st">"1:7"</span>)) (r-&gt;clj (r <span class="st">"c(77,72,75,73,66,64,59)"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -405,23 +410,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </g>
 </svg>
 
+</section>
+<section id="using-ggplot" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="using-ggplot"><span class="header-section-number">2.2.2</span> Using ggplot</h3>
 <div class="sourceClojure">
 <div class="sourceCode" id="cb37"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>(plot-&gt;svg</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a> #(gr/plot-function (r-&gt;clj (r <span class="st">"sin"</span>)) (r-&gt;clj (r <span class="st">"-pi"</span>)) (r-&gt;clj (r <span class="st">"2*pi"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-<p>Using ggplot</p>
-<div class="sourceClojure">
-<div class="sourceCode" id="cb38"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>(plot-&gt;svg</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a> (<span class="kw">let</span> [x (r-&gt;clj (r <span class="st">"1: 7"</span>))</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>       y (r-&gt;clj (r <span class="st">"c(77, 72, 75, 73, 66, 64, 59)"</span>))]</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>   (<span class="kw">-&gt;</span> {<span class="at">:x</span> x <span class="at">:y</span> y}</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>       dataset/-&gt;dataset</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>       (ggplot (aes <span class="at">:x</span> x</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">:y</span> y))</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>       (r/r+ (geom_point)</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>             (xlab <span class="st">"x"</span>)</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>             (ylab <span class="st">"y"</span>)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a> (<span class="kw">let</span> [x (r-&gt;clj (r <span class="st">"1: 7"</span>))</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>       y (r-&gt;clj (r <span class="st">"c(77, 72, 75, 73, 66, 64, 59)"</span>))]</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>   (<span class="kw">-&gt;</span> {<span class="at">:x</span> x <span class="at">:y</span> y}</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>       dataset/-&gt;dataset</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>       (ggplot (aes <span class="at">:x</span> x</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">:y</span> y))</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>       (r/r+ (geom_point)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>             (xlab <span class="st">"x"</span>)</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>             (ylab <span class="st">"y"</span>)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!--?xml version='1.0' encoding='UTF-8' ?-->
 <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="720.00pt" height="576.00pt" viewbox="0 0 720.00 576.00">
@@ -499,14 +501,204 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </svg>
 
 <div class="sourceClojure">
-<div class="sourceCode" id="cb39"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>(plot-&gt;svg</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a> #(gr/plot-default (r-&gt;clj (r <span class="st">"sin"</span>)) (r-&gt;clj (r <span class="st">"-pi"</span>)) (r-&gt;clj (r <span class="st">"2*pi"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>(plot-&gt;svg</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a> (<span class="kw">let</span> [{<span class="at">:keys</span> [x y] <span class="at">:as</span> sin-data} (r-&gt;clj (r <span class="st">"plot(sin, -pi, 2*pi)"</span>))]</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>   (<span class="kw">-&gt;</span> sin-data</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>       dataset/-&gt;dataset</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>       sin-data</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>       (ggplot (aes <span class="at">:x</span> x</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">:y</span> y))</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>       (r/r+ (geom_path)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>             (xlab <span class="st">"x"</span>)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>             (ylab <span class="st">"y"</span>)))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!--?xml version='1.0' encoding='UTF-8' ?-->
+<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="720.00pt" height="576.00pt" viewbox="0 0 720.00 576.00">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;"></rect>
+<defs>
+  <clippath id="cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=">
+    <rect x="0.00" y="0.00" width="720.00" height="576.00"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<rect x="0.00" y="0.00" width="720.00" height="576.00" style="stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;"></rect>
+</g>
+<defs>
+  <clippath id="cpMzguNjR8NzE0LjUyfDUuNDh8NTQ0LjI3">
+    <rect x="38.64" y="5.48" width="675.88" height="538.79"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#cpMzguNjR8NzE0LjUyfDUuNDh8NTQ0LjI3)">
+<rect x="38.64" y="5.48" width="675.88" height="538.79" style="stroke-width: 1.07; stroke: none; fill: #EBEBEB;"></rect>
+<polyline points="38.64,458.66 714.52,458.66 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,336.17 714.52,336.17 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,213.69 714.52,213.69 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,91.21 714.52,91.21 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="78.59,544.27 78.59,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="208.98,544.27 208.98,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="339.37,544.27 339.37,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="469.75,544.27 469.75,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="600.14,544.27 600.14,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,519.90 714.52,519.90 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,397.41 714.52,397.41 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,274.93 714.52,274.93 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,152.45 714.52,152.45 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="38.64,29.97 714.52,29.97 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="143.79,544.27 143.79,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="274.17,544.27 274.17,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="404.56,544.27 404.56,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="534.95,544.27 534.95,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="665.34,544.27 665.34,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="69.36,274.93 75.50,297.99 81.65,320.83 87.79,343.28 93.94,365.11 100.08,386.14 106.23,406.19 112.37,425.07 118.52,442.62 124.66,458.68 130.80,473.11 136.95,485.78 143.09,496.58 149.24,505.41 155.38,512.20 161.53,516.88 167.67,519.41 173.82,519.78 179.96,517.97 186.10,514.00 192.25,507.91 198.39,499.75 204.54,489.60 210.68,477.54 216.83,463.68 222.97,448.15 229.11,431.08 235.26,412.62 241.40,392.95 247.55,372.22 253.69,350.63 259.84,328.37 265.98,305.64 272.13,282.63 278.27,259.55 284.41,236.61 290.56,214.01 296.70,191.95 302.85,170.63 308.99,150.24 315.14,130.95 321.28,112.94 327.42,96.36 333.57,81.37 339.71,68.10 345.86,56.67 352.00,47.17 358.15,39.70 364.29,34.31 370.44,31.06 376.58,29.97 382.72,31.06 388.87,34.31 395.01,39.70 401.16,47.17 407.30,56.67 413.45,68.10 419.59,81.37 425.73,96.36 431.88,112.94 438.02,130.95 444.17,150.24 450.31,170.63 456.46,191.95 462.60,214.01 468.75,236.61 474.89,259.55 481.03,282.63 487.18,305.64 493.32,328.37 499.47,350.63 505.61,372.22 511.76,392.95 517.90,412.62 524.04,431.08 530.19,448.15 536.33,463.68 542.48,477.54 548.62,489.60 554.77,499.75 560.91,507.91 567.06,514.00 573.20,517.97 579.34,519.78 585.49,519.41 591.63,516.88 597.78,512.20 603.92,505.41 610.07,496.58 616.21,485.78 622.35,473.11 628.50,458.68 634.64,442.62 640.79,425.07 646.93,406.19 653.08,386.14 659.22,365.11 665.37,343.28 671.51,320.83 677.65,297.99 683.80,274.93 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline>
+</g>
+<g clip-path="url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<text x="33.71" y="523.05" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="15.16px" lengthadjust="spacingAndGlyphs">-1.0</text>
+<text x="33.71" y="400.57" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="15.16px" lengthadjust="spacingAndGlyphs">-0.5</text>
+<text x="33.71" y="278.09" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="12.23px" lengthadjust="spacingAndGlyphs">0.0</text>
+<text x="33.71" y="155.61" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="12.23px" lengthadjust="spacingAndGlyphs">0.5</text>
+<text x="33.71" y="33.12" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="12.23px" lengthadjust="spacingAndGlyphs">1.0</text>
+<polyline points="35.90,519.90 38.64,519.90 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="35.90,397.41 38.64,397.41 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="35.90,274.93 38.64,274.93 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="35.90,152.45 38.64,152.45 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="35.90,29.97 38.64,29.97 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="143.79,547.01 143.79,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="274.17,547.01 274.17,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="404.56,547.01 404.56,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="534.95,547.01 534.95,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="665.34,547.01 665.34,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<text x="143.79" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="7.83px" lengthadjust="spacingAndGlyphs">-2</text>
+<text x="274.17" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="4.90px" lengthadjust="spacingAndGlyphs">0</text>
+<text x="404.56" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="4.90px" lengthadjust="spacingAndGlyphs">2</text>
+<text x="534.95" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="4.90px" lengthadjust="spacingAndGlyphs">4</text>
+<text x="665.34" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="4.90px" lengthadjust="spacingAndGlyphs">6</text>
+<text x="376.58" y="568.09" text-anchor="middle" style="font-size: 11.00px; font-family: &quot;Arial&quot;;" textlength="5.50px" lengthadjust="spacingAndGlyphs">x</text>
+<text transform="translate(13.37,274.87) rotate(-90)" text-anchor="middle" style="font-size: 11.00px; font-family: &quot;Arial&quot;;" textlength="5.50px" lengthadjust="spacingAndGlyphs">y</text>
+</g>
+</svg>
+
+<div class="sourceClojure">
+<div class="sourceCode" id="cb39"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>(r <span class="st">"square &lt;- function(x) x*x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="printedClojure">
+<div class="sourceCode" id="cb40"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>function (x) </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>x <span class="kw">*</span> x</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceClojure">
+<div class="sourceCode" id="cb41"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">def</span><span class="fu"> x </span>(r-&gt;clj (r <span class="st">"x &lt;- seq(-3, 2, length=100)"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceClojure">
+<div class="sourceCode" id="cb42"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">def</span><span class="fu"> y </span>(r-&gt;clj (r <span class="st">"y &lt;- square(x)"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceClojure">
+<div class="sourceCode" id="cb43"><pre class="sourceCode clojure code-with-copy"><code class="sourceCode clojure"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>(plot-&gt;svg</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a> (<span class="kw">-&gt;</span> {<span class="at">:x</span> (r-&gt;clj x) <span class="at">:y</span> (r-&gt;clj y)}</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>     dataset/-&gt;dataset</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>     (ggplot (aes <span class="at">:x</span> x</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">:y</span> y))</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>     (r/r+ (geom_line)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>           (xlab <span class="st">"x"</span>)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>           (ylab <span class="st">"y"</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!--?xml version='1.0' encoding='UTF-8' ?-->
+<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" class="svglite" width="720.00pt" height="576.00pt" viewbox="0 0 720.00 576.00">
+<defs>
+  <style type="text/css">
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  </style>
+</defs>
+<rect width="100%" height="100%" style="stroke: none; fill: #FFFFFF;"></rect>
+<defs>
+  <clippath id="cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=">
+    <rect x="0.00" y="0.00" width="720.00" height="576.00"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<rect x="-0.000000000000064" y="0.00" width="720.00" height="576.00" style="stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;"></rect>
+</g>
+<defs>
+  <clippath id="cpMzUuNzF8NzE0LjUyfDUuNDh8NTQ0LjI3">
+    <rect x="35.71" y="5.48" width="678.81" height="538.79"></rect>
+  </clippath>
+</defs>
+<g clip-path="url(#cpMzUuNzF8NzE0LjUyfDUuNDh8NTQ0LjI3)">
+<rect x="35.71" y="5.48" width="678.81" height="538.79" style="stroke-width: 1.07; stroke: none; fill: #EBEBEB;"></rect>
+<polyline points="35.71,451.77 714.52,451.77 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="35.71,315.70 714.52,315.70 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="35.71,179.64 714.52,179.64 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="35.71,43.58 714.52,43.58 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="128.27,544.27 128.27,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="251.69,544.27 251.69,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="375.11,544.27 375.11,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="498.53,544.27 498.53,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="621.96,544.27 621.96,5.48 " style="stroke-width: 0.53; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="35.71,519.80 714.52,519.80 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="35.71,383.73 714.52,383.73 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="35.71,247.67 714.52,247.67 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="35.71,111.61 714.52,111.61 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="66.56,544.27 66.56,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="189.98,544.27 189.98,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="313.40,544.27 313.40,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="436.82,544.27 436.82,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="560.25,544.27 560.25,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="683.67,544.27 683.67,5.48 " style="stroke-width: 1.07; stroke: #FFFFFF; stroke-linecap: butt;"></polyline>
+<polyline points="66.56,29.97 72.80,46.32 79.03,62.40 85.26,78.20 91.50,93.72 97.73,108.96 103.96,123.93 110.20,138.62 116.43,153.03 122.66,167.16 128.90,181.01 135.13,194.59 141.36,207.89 147.60,220.91 153.83,233.66 160.06,246.12 166.30,258.31 172.53,270.22 178.76,281.86 185.00,293.21 191.23,304.29 197.46,315.09 203.70,325.61 209.93,335.86 216.16,345.83 222.40,355.52 228.63,364.93 234.86,374.06 241.10,382.92 247.33,391.50 253.56,399.80 259.80,407.83 266.03,415.57 272.26,423.04 278.50,430.23 284.73,437.15 290.96,443.78 297.20,450.14 303.43,456.22 309.66,462.02 315.90,467.55 322.13,472.80 328.36,477.77 334.60,482.46 340.83,486.87 347.06,491.01 353.30,494.87 359.53,498.45 365.76,501.76 372.00,504.78 378.23,507.53 384.46,510.00 390.70,512.20 396.93,514.11 403.16,515.75 409.40,517.11 415.63,518.19 421.86,519.00 428.10,519.53 434.33,519.78 440.56,519.75 446.80,519.44 453.03,518.86 459.26,518.00 465.50,516.86 471.73,515.44 477.96,513.75 484.20,511.78 490.43,509.53 496.66,507.00 502.90,504.20 509.13,501.12 515.36,497.76 521.60,494.12 527.83,490.21 534.06,486.01 540.30,481.54 546.53,476.80 552.77,471.77 559.00,466.47 565.23,460.89 571.47,455.03 577.70,448.89 583.93,442.48 590.17,435.79 596.40,428.82 602.63,421.57 608.87,414.05 615.10,406.24 621.33,398.16 627.57,389.81 633.80,381.17 640.03,372.26 646.27,363.07 652.50,353.60 658.73,343.86 664.97,333.83 671.20,323.53 677.43,312.95 683.67,302.10 " style="stroke-width: 1.07; stroke-linecap: butt;"></polyline>
+</g>
+<g clip-path="url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)">
+<text x="30.78" y="522.95" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="12.23px" lengthadjust="spacingAndGlyphs">0.0</text>
+<text x="30.78" y="386.89" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="12.23px" lengthadjust="spacingAndGlyphs">2.5</text>
+<text x="30.78" y="250.82" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="12.23px" lengthadjust="spacingAndGlyphs">5.0</text>
+<text x="30.78" y="114.76" text-anchor="end" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="12.23px" lengthadjust="spacingAndGlyphs">7.5</text>
+<polyline points="32.97,519.80 35.71,519.80 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="32.97,383.73 35.71,383.73 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="32.97,247.67 35.71,247.67 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="32.97,111.61 35.71,111.61 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="66.56,547.01 66.56,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="189.98,547.01 189.98,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="313.40,547.01 313.40,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="436.82,547.01 436.82,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="560.25,547.01 560.25,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<polyline points="683.67,547.01 683.67,544.27 " style="stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;"></polyline>
+<text x="66.56" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="7.83px" lengthadjust="spacingAndGlyphs">-3</text>
+<text x="189.98" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="7.83px" lengthadjust="spacingAndGlyphs">-2</text>
+<text x="313.40" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="7.83px" lengthadjust="spacingAndGlyphs">-1</text>
+<text x="436.82" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="4.90px" lengthadjust="spacingAndGlyphs">0</text>
+<text x="560.25" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="4.90px" lengthadjust="spacingAndGlyphs">1</text>
+<text x="683.67" y="555.50" text-anchor="middle" style="font-size: 8.80px;fill: #4D4D4D; font-family: &quot;Arial&quot;;" textlength="4.90px" lengthadjust="spacingAndGlyphs">2</text>
+<text x="375.11" y="568.09" text-anchor="middle" style="font-size: 11.00px; font-family: &quot;Arial&quot;;" textlength="5.50px" lengthadjust="spacingAndGlyphs">x</text>
+<text transform="translate(13.37,274.87) rotate(-90)" text-anchor="middle" style="font-size: 11.00px; font-family: &quot;Arial&quot;;" textlength="5.50px" lengthadjust="spacingAndGlyphs">y</text>
+</g>
+</svg>
 
 <div style="background-color:grey;height:2px;width:100%;"></div>
 <div><pre><small><small>source: notebooks/climate_mathematics/chapter_2.clj</small></small></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
