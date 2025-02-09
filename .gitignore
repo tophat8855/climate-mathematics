@@ -3,3 +3,4 @@
 .nrepl-port
 .clay.html
 docs/*qmd
+.DS_Store

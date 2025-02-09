@@ -95,3 +95,54 @@
      (r/r+ (geom_line)
            (xlab "x")
            (ylab "y"))))
+
+;; ### 3D Plots
+
+(r "x <- seq(-1, 1, length=100)")
+(r "y <- seq(-1, 1, length=100)")
+(r "z <- outer(x, y, function(x,y) (1-x^2-y^2))")
+
+;; Create a data frame
+(r "data <- expand.grid(x=x, y=y)")
+
+(r "data$z <- as.vector(z)")
+
+;; Create a contour plot using ggplot2
+(r "p_contour <- ggplot(data, aes(x=x, y=y, z=z)) +
+                  geom_contour() +
+                  ggtitle('Contour Plot')")
+
+;; Display the contour plot
+(plot->svg (r "p_contour"))
+
+;; Create a filled contour plot using ggplot2
+(r "p_filled_contour <- ggplot(data, aes(x=x, y=y, z=z)) +
+                         geom_raster(aes(fill=z)) +
+                         geom_contour(color='white') +
+                         ggtitle('Filled Contour Plot') +
+                         theme_minimal()")
+
+;; Display the filled contour plot
+(plot->svg (r "p_filled_contour"))
+
+;; ## Symbolic Caclulations by R
+(r "D(expression(x^2, 'x'), 'x')")
+
+(r "fx= expression(x^2 * sin(x), 'x')")
+
+(r "D(fx, 'x')")
+
+;; Skipping the matrices section for now.
+;; ## Simple Statistics
+
+(r "x=rnorm(10)")
+(r "x")
+(r "mean(x)")
+(r "var(x)")
+(r "sd(x)")
+(r "median(x)")
+(r "quantile(x)")
+(r "range(x)")
+(r "max(x)")
+
+(r "boxplot(x)")
