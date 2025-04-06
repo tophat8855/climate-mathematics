@@ -1,10 +1,10 @@
 # Plan
 
-You can see the work-in-progress here: (https://tophat8855.github.io/climate-mathematics/)[Climate Mathematics Clay Notebook].
+You can see the work-in-progress here: [https://tophat8855.github.io/climate-mathematics/](Climate Mathematics Clay Notebook).
 
 ## Goals
 
-- Work through the (https://climatemathematics.sdsu.edu/)[Climate Mathematics] textbook, using Clay to document my progress.
+- Work through the [https://climatemathematics.sdsu.edu/](Climate Mathematics) textbook, using Clay to document my progress.
 
 ### Things I've come across/need to revisit
 - Viz only works for kind v3 and the most recent kind that is in my deps.edn is v4. Perhaps, PR to update it?
