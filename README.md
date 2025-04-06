@@ -1,5 +1,7 @@
 # Plan
 
+You can see the work-in-progress here: (https://tophat8855.github.io/climate-mathematics/)[Climate Mathematics Clay Notebook].
+
 ## Goals
 
 - Work through the (https://climatemathematics.sdsu.edu/)[Climate Mathematics] textbook, using Clay to document my progress.
